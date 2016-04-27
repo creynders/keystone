@@ -1,4 +1,4 @@
-var adminUI = require('../../adminUI');
+var adminUI = require('../../../adminUI');
 
 module.exports = {
 	before: function (browser) {
@@ -20,26 +20,24 @@ module.exports = {
 			.pause(browser.globals.defaultPauseTimeout)
 			.end();
 	},
-	'Code field should be visible in initial modal': function (browser) {
+	'Select field should show correctly in the initial modal': function (browser) {
 		browser
-			.click(adminUI.cssSelector.homeView.plusIconLinkForCodesTabUnderDashboardFieldsSubheading)
+			.click(adminUI.cssSelector.homeView.plusIconLinkForSelectsTabUnderDashboardFieldsSubheading)
 			.waitForElementVisible(adminUI.cssSelector.initialModalView.id)
 			.pause(browser.globals.defaultPauseTimeout);
 
-		browser.expect.element(adminUI.cssSelector.initialModalView.fieldType.code.code.name.label)
+		browser.expect.element(adminUI.cssSelector.initialModalView.fieldType.select.select.name.label)
 			.to.be.visible;
-		browser.expect.element(adminUI.cssSelector.initialModalView.fieldType.code.code.name.label)
+		browser.expect.element(adminUI.cssSelector.initialModalView.fieldType.select.select.name.label)
 			.text.to.equal('Name');
-		browser.expect.element(adminUI.cssSelector.initialModalView.fieldType.code.code.name.value)
+		browser.expect.element(adminUI.cssSelector.initialModalView.fieldType.select.select.name.value)
 			.to.be.visible;
 
-		browser.expect.element(adminUI.cssSelector.initialModalView.fieldType.code.code.fieldA.label)
+		browser.expect.element(adminUI.cssSelector.initialModalView.fieldType.select.select.fieldA.label)
 			.to.be.visible;
-		browser.expect.element(adminUI.cssSelector.initialModalView.fieldType.code.code.fieldA.label)
+		browser.expect.element(adminUI.cssSelector.initialModalView.fieldType.select.select.fieldA.label)
 			.text.to.equal('Field A');
-		browser.expect.element(adminUI.cssSelector.initialModalView.fieldType.code.code.fieldA.lineNumber)
-			.text.to.equal('1');
-		browser.expect.element(adminUI.cssSelector.initialModalView.fieldType.code.code.fieldA.codeMirror)
+		browser.expect.element(adminUI.cssSelector.initialModalView.fieldType.select.select.fieldA.inputField)
 			.to.be.visible;
 	},
 };

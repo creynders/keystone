@@ -1,4 +1,3 @@
-var NameType = require('../fieldTypes/name');
 var TextType = require('../fieldTypes/text');
 
 module.exports = function NameList(config) {
@@ -6,7 +5,7 @@ module.exports = function NameList(config) {
 		selector: '.Form',
 		sections: {
 			name: new TextType({fieldName: 'name'}),
-			fieldA: new NameType({fieldName: 'fieldA'}),
+			fieldA: new TextType({fieldName: 'fieldA'}),
 		},
 		commands: [{
 			//
